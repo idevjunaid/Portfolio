@@ -1,0 +1,27 @@
+@import './assets/variables';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to right, #111, #222);
+    display: block  !important;
+    @media screen and (max-width:991.98px){
+        &{
+            background:linear-gradient(to bottom, #111, #222) ;
+        }
+    }
+}
+
+.main {
+    height: 100vh;
+    @media screen and (max-width:991.98px) {
+        &{
+            height: calc(100vh - 75px);
+        }
+    }
+}

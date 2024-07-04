@@ -1,0 +1,182 @@
+@import '../../assets/variables';
+
+/* Navbar.scss */
+
+/* For desktop */
+.navbar {
+  padding: 0;
+  background: radial-gradient(at 0% 50%, $primary 50%, $accents 100%);
+  box-shadow: 0 7px 15px 0 rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(13px);
+  border-radius: 0 10px 10px 0;
+  position: fixed;
+  left: 0;
+  animation-duration: 2s;
+  z-index: 99;
+
+  .container-fluid {
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    a {
+      color: $font;
+      font-size: 18px;
+      position: relative;
+      transition: all 0.3s ease;
+
+      svg {
+        transition: all 0.3s ease;
+      }
+
+      @media screen and (min-width: 992px) {
+        &:not(.navbar-brand) {
+          &::before {
+            content: "";
+            position: absolute;
+            width: 25px;
+            background-color: $font;
+            top: 50%;
+            transform: translate(-130%, -50%);
+            left: 0;
+            height: 4px;
+            border-radius: 5px;
+          }
+
+          &:hover {
+            color: $font;
+            transform: translateX(10px);
+          }
+
+          &.active {
+            transform: translateX(30px);
+            color: $font;
+            font-weight: bold;
+
+            &::before {
+              width: 50px;
+            }
+
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-brand,
+  .navbar-nav .nav-item .nav-link {
+    display: flex;
+    gap: 10px;
+  }
+
+  .navbar-nav {
+    margin-top: auto;
+    margin-bottom: auto !important;
+  }
+
+  @keyframes slideIn {
+    from {
+      left: -100%;
+    }
+
+    to {
+      left: 0;
+    }
+  }
+
+  &.slideInAnimation {
+    animation-name: slideIn;
+  }
+}
+
+/* For mobile and tablets */
+@media (max-width: 992px) {
+  .navbar {
+    position: fixed;
+    background: linear-gradient(to bottom, #{$secondary}cc 0%, #{$accents}cc 25%, #{$accents}cc 50%, #{$accents}cc 75%, #{$primary}cc 100%);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    transition: bottom 0.5s ease;
+
+    .container-fluid {
+      height: auto;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0;
+
+      a {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          height: 100%;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          z-index: -1;
+          background: rgba(255, 255, 255, 0.46);
+          border-radius: 5px;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(18.6px);
+          -webkit-backdrop-filter: blur(18.6px);
+          border: 1px solid rgba(255, 255, 255, 0.27);
+          transition: transform 0.5s ease;
+          transform: translateX(100%);
+        }
+
+        &.active::after {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    .navbar-brand {
+      display: none !important;
+    }
+
+    .navbar-nav {
+      width: 100%;
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      flex-direction: column;
+      gap: 5px;
+      align-items: center;
+      padding: 10px 5px;
+      position: relative;
+    }
+
+    .navbar-nav .nav-item .nav-link::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      background: rgba(255, 255, 255, 0.46);
+      border-radius: 5px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(18.6px);
+      -webkit-backdrop-filter: blur(18.6px);
+      border: 1px solid rgba(255, 255, 255, 0.27);
+      transition: transform 0.5s ease, opacity 0.3s ease;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .navbar-nav .nav-item .nav-link.active::after {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}

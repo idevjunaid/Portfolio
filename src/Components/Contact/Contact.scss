@@ -1,0 +1,176 @@
+@import '../../assets/variables';
+
+.main {
+  padding: 20px;
+  height: 100vh;
+  overflow: hidden;
+
+  .contact-info {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .name-city {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+
+      .name {
+        color: #fff;
+        font-size: 24px;
+        margin-right: 10px;
+      }
+
+      .city {
+        color: #ddd;
+        font-size: 20px;
+      }
+    }
+
+    .contact-icons {
+      display: flex;
+      gap: 20px;
+      justify-content: space-evenly;
+
+      .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        opacity: 1;
+        transition: opacity 0.3s;
+        min-width: 50px;
+        cursor: pointer;
+
+        .contact-icon {
+          color: #fff;
+          font-size: 32px;
+          transition: color 0.3s, transform 0.3s ease-out;
+          // transform: translateX(10px);
+
+          @media (max-width: 767px) {
+            transform: none;
+          }
+        }
+
+        &:hover {
+          .contact-icon {
+            color: $primary;
+            transform: translateY(-5px);
+          }
+        }
+      }
+    }
+
+    .cv-download {
+      margin-top: 20px;
+
+      button {
+        background: radial-gradient(circle, $primary, $accents);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+
+        &:hover {
+          background: radial-gradient(circle, $accents, $primary);
+          transform: scale(1.05);
+        }
+
+        @media (max-width: 767px) {
+          transform: none;
+        }
+      }
+    }
+
+    @media screen and (max-width: 991.98px) {
+      & {
+        max-width: 350px;
+        text-align: left;
+        .info {
+          flex-direction: column;
+        } 
+        .contact-icons {
+          flex-direction: column;
+          max-width: 250px;
+
+          .icon-wrapper {
+            gap: 25px;
+
+            .contact-icon {
+              transform: none;
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+    @media screen and (max-width: 613px) {
+      & {
+        text-align: center;
+        .contact-icons {
+          margin: auto;
+          .icon-wrapper {
+            flex-direction: column;
+            gap: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 500px;
+  width: auto;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  outline: none;
+  
+  a,p {
+    color: $font;
+    text-decoration: none;
+    font-size: 18px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .close-button {
+    margin-top: 20px;
+    background: radial-gradient(circle, $primary, $accents);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+
+        &:hover {
+          background: radial-gradient(circle, $accents, $primary);
+          transform: scale(1.05);
+        }
+  }
+}

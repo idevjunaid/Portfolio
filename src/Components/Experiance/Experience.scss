@@ -1,0 +1,100 @@
+@import '../../assets/variables';
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-fade-enter-active .experience {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience {
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  align-content: center;
+
+  h2 {
+    text-align: center;
+  }
+
+  .experience-section {
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #555;
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: radial-gradient(at 50% 50%, $primary, $accents);
+      border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-button {
+      display: none;
+    }
+
+    .experience-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      animation: slideIn 0.5s forwards;
+
+      &:hover {
+        background: linear-gradient(135deg, $primary, $accents);
+        transform: translateY(-5px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      h3 {
+        margin-top: 0;
+        color: #fff;
+      }
+
+      h4 {
+        margin-bottom: 5px;
+        color: #ccc;
+      }
+
+      p {
+        color: #ddd;
+        margin-bottom: 5px;
+        @media screen and (max-width:991.98px) {
+          &.dash{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

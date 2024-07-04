@@ -1,0 +1,122 @@
+@import '../../assets/variables';
+
+.main {
+    .home-container {
+        gap: 15px;
+
+        @media screen and (max-width:991.98px) {
+            & {
+                flex-direction: column;
+
+            }
+        }
+
+        .introduction {
+            flex: 2;
+
+            @media screen and (max-width:991.98px) {
+                & {
+                    flex: unset;
+                    text-align: center;
+                }
+            }
+
+            .typing {
+                border-right: 2px solid;
+                width: 8ch;
+                text-wrap: nowrap;
+                overflow: hidden;
+                animation: typing 1.2s steps(30, end) forwards 2s, blink 1s ease infinite;
+                vertical-align: bottom;
+                border-right: 2px solid transparent;
+                @media screen and (max-width:991.98px){
+                    &{
+                        width: 7.5ch;
+                        margin: auto;
+                    }
+                }
+            }
+
+            .detail {
+                opacity: 0;
+                animation: fade-in .8s ease 3.5s forwards;
+            }
+        }
+
+        .image-container-main {
+            flex: 1;
+
+            @media screen and (max-width:991.98px) {
+                & {
+                    flex: unset;
+                }
+            }
+        }
+
+        .image-container {
+            border: 5px solid $primary;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: slide-in 1s ease;
+            box-shadow: 0 7px 15px 0 rgba(255, 255, 255, 0.38);
+            max-width: 300px;
+        }
+
+        .image-container img {
+            width: 100%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+            @media screen and (max-width:991.98px) {
+                & {
+                    max-width: 300px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes blink {
+    0% {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: white;
+    }
+
+    100% {
+        border-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 8ch;
+    }
+
+    to {
+        width: 21.2ch;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

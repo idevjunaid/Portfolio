@@ -1,0 +1,75 @@
+@import "../../assets/variables";
+
+
+.slide-fade-enter-active .about{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about {
+    height: 100%;
+    margin: auto;
+    padding: 0 20px;
+    opacity: 0; 
+    transform: translateY(50px); 
+    transition: opacity 0.5s ease, transform 0.5s ease; 
+    h2, h3 {
+        text-align: center;
+    }
+
+    p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+        @media screen and (max-width:991.98px) {
+            &{
+                text-align: justify;
+            }
+        }
+    }
+
+    .skills {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            p {
+                white-space: nowrap;
+            }
+
+            .skill-bar {
+                width: 80%;
+                height: 10px;
+                background-color: rgba(255, 255, 255, 0.2);
+                border-radius: 5px;
+                overflow: hidden;
+        @media screen and (max-width:991.98px) {
+            &{
+                width: 35%;
+            }
+        }
+                .skill-level {
+                    height: 100%;
+                    background-color: $primary;
+                    width: 0; 
+                    transition: width 1s ease 0.5s; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    padding-right: 5px;
+
+                    span {
+                        color: #fff;
+                        font-size: 0.8em;
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
